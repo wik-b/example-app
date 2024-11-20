@@ -1,16 +1,9 @@
-<!doctype html>
-<html lang="eng">
-    <head>
-        <title>Posts @yield('title')</title>
-    </head>
-    <body>
-        <h1>post something test @yield('title')</h1>
-    
-    <div>
-        @yield('content')
-        
-    </div>
-    
-    
-    </body>
-</html>
+@extends('layouts.posts')
+
+@section('title', 'Posts')
+
+@section('content')
+<p>Just testing if the posts views work</p>
+<ul>
+</ul>
+@endsection

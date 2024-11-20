@@ -13,7 +13,7 @@ class PostsController extends Controller
     public function index()
     {
       $posts = Posts::all();
-      return view("posts.index", ['posts' => $posts]);
+      return view("posts.index", ['posts'=>$posts]);
     }
 
 
