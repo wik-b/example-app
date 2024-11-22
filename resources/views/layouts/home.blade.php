@@ -7,7 +7,7 @@
     
 
     <div>
-        <h1>Whats up welcome to the wikconnect @yield('title')</h1>
+        <h1>Whats up welcome to the wikconnect</h1>
 </div>
         @yield('content')
         <body class="antialiased" style="background-colour: ##ff3300;">
