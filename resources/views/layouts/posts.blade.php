@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="eng">
 <script src="https://cdn.tailwindcss.com"></script>
+
+<div class="min-h-screen bg-sky-200 dark:bg-gray-900">
     <head>
         <title>Posts @yield('title')</title>
     </head>
@@ -9,9 +11,10 @@
     
     <div>
         @yield('content')
-        <p class="text-sky-400">testing the colour</p>
+        
     </div>
     
     
     </body>
+</div>
 </html>

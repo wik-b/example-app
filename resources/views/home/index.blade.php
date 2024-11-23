@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-<p>posts and stuff</p>
+<a href="{{ route('posts.create')}}">Make a Post</a>
 <ul>
 </ul>
 @endsection

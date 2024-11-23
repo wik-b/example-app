@@ -1,14 +1,14 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use League\CommonMark\Extension\TableOfContents\Normalizer\AsIsNormalizerStrategy;
 
 Route::get('/', function () {
     return view('home.index');
 });
-Route::get('/posts', function () {
-    return view('posts.index');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -21,3 +21,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/posts', [PostsController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostsController::class, 'create'])->name('posts.create');
+Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
+Route::get('/posts/{author_id}', [PostsController::class, 'show'])->name('posts.show');
+

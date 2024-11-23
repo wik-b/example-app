@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('author_id');
             $table->string('name');
+            $table->string('post', 500);
             $table->integer('likes');
             $table->integer('shares');
             $table->timestamps();
