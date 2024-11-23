@@ -2,7 +2,7 @@
 <html lang="eng">
 <script src="https://cdn.tailwindcss.com"></script>
 
-
+<x-navbar />
 
 <div class="min-h-screen bg-sky-200 dark:bg-gray-900">
 <div class='text-black dark:text-white'>
@@ -11,8 +11,6 @@
         <title>Home Page @yield('title')</title>
     </head>
     <body>
-    <div> 
-        <img src="/images/logo.png" alt="logo" class="w-60 h-60"></div>
     <div>
         <h1>Whats up welcome to the wikconnect</h1>
      </div>
