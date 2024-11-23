@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="eng">
+<script src="https://cdn.tailwindcss.com"></script>
     <head>
         <title>Home Page @yield('title')</title>
     </head>
