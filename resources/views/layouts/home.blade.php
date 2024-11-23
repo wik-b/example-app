@@ -11,9 +11,8 @@
         <title>Home Page @yield('title')</title>
     </head>
     <body>
-    <div> <img src="/logo.png" alt="logo" class="w-32 h-32"></div>
-    
-
+    <div> 
+        <img src="/images/logo.png" alt="logo" class="w-60 h-60"></div>
     <div>
         <h1>Whats up welcome to the wikconnect</h1>
      </div>

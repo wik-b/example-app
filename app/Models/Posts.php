@@ -19,4 +19,9 @@ class Posts extends Model
         return $this->belongsTo(UsersInfo::class);
     }
 
+    public function post()
+    {
+        return $this->belongsTo(UsersInfo::class);
+    }
+
 }

@@ -35,14 +35,6 @@ class PostsController extends Controller
             'post' => 'required|max:500',
         ]);
 
-        $a = new Posts;
-        $a->name = $validatedData['name'];
-        $a->post = $validatedData['post'];
-        $a->save();
-
-        session()->flash('message', 'Thanks for making a post!');
-        return redirect()->route('posts.index');
-
     }
 
     /**

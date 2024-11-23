@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('author_id');
             $table->string('name');
-            $table->integer('likes');
-            $table->integer('shares');
+            $table->string('posts', 500);
             $table->timestamps();
 
             $table->foreign('author_id')->references('id')->on('users_infos')

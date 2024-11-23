@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <img class="h-[50px]" src="/images/nobackground.png">
                     </a>
                 </div>
 
@@ -87,12 +87,12 @@
                             @else
                             Guest
                             @endauth
-                <div class="font-medium text-sm text-gray-500"><div>
-                            @auth
-                            {{ Auth::user()->name }}</div>
-                            @else
-                            Guest
-                            @endauth
+                <div class="font-medium text-sm text-gray-500">
+                @auth
+                {{ Auth::user()->email }}</div>
+                @else
+                Guest
+                @endauth
             </div>
 
             <div class="mt-3 space-y-1">

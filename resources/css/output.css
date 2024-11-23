@@ -1102,6 +1102,34 @@ select {
   height: 8rem;
 }
 
+.h-60 {
+  height: 15rem;
+}
+
+.h-\[20px\] {
+  height: 20px;
+}
+
+.h-\[80px\] {
+  height: 80px;
+}
+
+.h-\[50px\] {
+  height: 50px;
+}
+
+.h-\[100px\] {
+  height: 100px;
+}
+
+.h-\[400px\] {
+  height: 400px;
+}
+
+.h-\[200px\] {
+  height: 200px;
+}
+
 .max-h-32 {
   max-height: 8rem;
 }
@@ -1156,6 +1184,10 @@ select {
 
 .w-32 {
   width: 8rem;
+}
+
+.w-60 {
+  width: 15rem;
 }
 
 .min-w-0 {
