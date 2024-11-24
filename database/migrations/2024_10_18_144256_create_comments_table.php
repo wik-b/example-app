@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('post_id')->references('id')->on('posts');
             $table->timestamps();
             $table->unsignedBigInteger("author_id");
-            $table->foreign('author_id')->references('id')->on('users_infos')
+            $table->foreign('author_id')->references('id')->on('users')
             ->onDelete('cascade')->onUpdate('cascade');
         });
 

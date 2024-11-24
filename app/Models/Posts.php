@@ -18,12 +18,12 @@ class Posts extends Model
 
     public function author_id()
     {
-        return $this->belongsTo(UsersInfo::class);
+        return $this->belongsTo(User::class);
     }
 
     public function post()
     {
-        return $this->belongsTo(UsersInfo::class);
+        return $this->belongsTo(User::class);
     }
 
 }

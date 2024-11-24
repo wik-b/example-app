@@ -20,7 +20,7 @@
             <ul>
                 @foreach($posts as $post)
                 <li>
-                    <strong>{{$post->name}}</strong>: {{$post->post}}
+                    <strong>{{$post->name}}</strong>: {{$post->posts}}
                 </li>
                 @endforeach
             </ul>

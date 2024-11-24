@@ -17,9 +17,9 @@ class PostsFactory extends Factory
     public function definition(): array
     {
         return [
-            'author_id' => \App\Models\UsersInfo::all()->random()->id,
+            'author_id' => \App\Models\User::all()->random()->id,
             'name' => fake()->name(),
-            'post' => fake()->text(),
+            'posts' => fake()->text(),
         ];
     }
 

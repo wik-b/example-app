@@ -25,6 +25,7 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      */

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\UsersInfo;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this -> call(UsersInfoTableSeeder::class);
+        $this -> call(UserTableSeeder::class);
         $this -> call(PostsTableSeeder::class);
         $this -> call(CommentsTableSeeder::class);
            
