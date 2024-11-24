@@ -4,11 +4,11 @@
 
 <x-navbar />
 
-<div class="min-h-screen bg-sky-200 dark:bg-gray-900">
+<div class="min-h-screen bg-sky-200 dark:bg-gray-800">
 <div class='text-black dark:text-white'>
 
     <head>
-        <title>Home Page @yield('title')</title>
+        <title>WikConnect @yield('title')</title>
     </head>
     <body>
     <div>

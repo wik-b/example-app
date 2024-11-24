@@ -2,27 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
 use App\Models\UsersInfo;
-use Auth;
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-      $posts = Posts::all();
-      return view("posts.index", compact('posts'));
+        $user = UsersInfo::all();
+      return view("user.user", ['users'=>$user]);
     }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('posts.create');
+        return view('user.create');
     }
 
     /**
@@ -30,21 +29,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'post' => 'required|max:500',
-        ]);
-        if (Auth::check()) {
-        Posts::create([
-            'author_id' => Auth::id(),
-            'name' => $request->name,
-            'post' => $request->post,
-            
-        ]);
-        return redirect()->route('posts.index')->with('success', 'Thank you for posting!');
-    } else {
-        return redirect()->route('login')->with('error', 'You must be logged in to create a post.');
-    }   
+        //
     }
 
     /**
@@ -52,8 +37,7 @@ class PostsController extends Controller
      */
     public function show(string $id)
     {
-        $posts = Posts::findOrFail($id);
-        return view('posts.show', ['posts' => $posts]);
+        //
     }
 
     /**

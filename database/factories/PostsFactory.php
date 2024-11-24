@@ -19,7 +19,7 @@ class PostsFactory extends Factory
         return [
             'author_id' => \App\Models\UsersInfo::all()->random()->id,
             'name' => fake()->name(),
-            'post' => fake()->sentence(),
+            'post' => fake()->text(),
         ];
     }
 

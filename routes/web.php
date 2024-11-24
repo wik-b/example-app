@@ -9,6 +9,9 @@ Route::get('/', function () {
     return view('home.index');
 });
 
+Route::get('/user', function () {
+    return view('user.user');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,3 +30,4 @@ Route::get('/posts/create', [PostsController::class, 'create'])->name('posts.cre
 Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
 Route::get('/posts/{author_id}', [PostsController::class, 'show'])->name('posts.show');
 
+Route::post('/login', [ProfileController::class, 'login'])->name('auth.login');

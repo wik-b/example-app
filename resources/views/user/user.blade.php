@@ -6,16 +6,16 @@
 
 <div class="min-h-screen bg-sky-200 dark:bg-gray-800">
     <head>
-        <title>Posts @yield('title')</title>
+        <title>Profile @yield('title')</title>
     </head>
     <body>
     <h1>posts testing</h1>
     
     <div>
-    
+        @yield('content')
         
     </div>
-    
+
     
     </body>
 </div>

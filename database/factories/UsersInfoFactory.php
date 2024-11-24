@@ -20,7 +20,6 @@ class UsersInfoFactory extends Factory
             'name' => fake()->name(),
             'email'=> fake()->email(),
             'password'=> fake()->password(),
-            'followers'=> fake()->randomNumber(),
             'posts'=> fake()->randomNumber(),
         ];
     }
