@@ -9,7 +9,6 @@
 <div class="min-h-screen bg-sky-200 dark:bg-gray-800">
     <head>
         <title>WikConnect @yield('title')</title>
-    @section('title', 'Posts')
 </head>
     <body>
 
@@ -20,7 +19,7 @@
             <ul>
                 @foreach($posts as $post)
                 <li>
-                    <strong>{{$post->name}}</strong>: {{$post->posts}}
+                    <strong>{{$post->user->name}}</strong>: {{$post->post}}
                 </li>
                 @endforeach
             </ul>

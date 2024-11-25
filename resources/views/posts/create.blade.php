@@ -11,11 +11,9 @@
     <form method="POST" action="{{ route('posts.store')}}" class="w-full max-w-lg bg-sky-200 dark:bg-gray-800 p-6 rounded-lg shadow-md">
         @csrf
         <p class='text-black dark:text-white mb-4'>
-            <label for="name" class="block text-sm font-medium">Name:</label>
-            <input type="text" name="name" id="name" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500">
+        <label for="post" class="block text-sm font-medium">Post:</label>
+        <textarea name="post" id="post" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500"></textarea>
         </p>
-        <p class='text-black dark:text-white'>Name: <input type="text" name="name"></p>
-        <p class='text-black dark:text-white'>Post: <input type="text" name="post"></p>
         <input class='text-black dark:text-white' type="submit" value="Submit">
         <a href="{{ route('posts.index') }}" class='text-black dark:text-white'>Cancel</a>
     </form>

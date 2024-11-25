@@ -9,21 +9,16 @@ class Posts extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['author_id', 'name', 'post'];
+    protected $fillable = ['author_id', 'post'];
 
     public function comments()
     {
     return $this->hasMany(Comments::class);
     }
 
-    public function author_id()
+    public function user()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function post()
-    {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 
 }

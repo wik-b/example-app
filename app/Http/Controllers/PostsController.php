@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Posts;
-use App\Models\UsersInfo;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -14,8 +14,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-      $posts = Posts::all();
-      return view("posts.index", compact('posts'));
+        $posts = Posts::with('user')->get();
+        return view("posts.index", compact('posts'));
     }
     /**
      * Show the form for creating a new resource.
@@ -25,37 +25,23 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
+        $request->validate([
             'post' => 'required|max:500',
         ]);
-        if (Auth::check()) {
+
         Posts::create([
-            'author_id' => Auth::id(),
-            'name' => $request->name,
+            'author_id' => auth()->id(),
             'post' => $request->post,
             
         ]);
         return redirect()->route('posts.index')->with('success', 'Thank you for posting!');
-    } else {
-        return redirect()->route('login')->with('error', 'You must be logged in to create a post.');
     }   
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $posts = Posts::findOrFail($id);
-        return view('posts.show', ['posts' => $posts]);
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

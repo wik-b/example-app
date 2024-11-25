@@ -11,13 +11,8 @@
         <title>WikConnect @yield('title')</title>
     </head>
     <body>
-    <div>
-        <h1>Whats up welcome to the wikconnect</h1>
-     </div>
         @yield('content')
-        
-    </b>
     </body>
-    </div>
-    </div>
+</div>
+</div>
 </html>
