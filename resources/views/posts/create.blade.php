@@ -2,9 +2,8 @@
 
 @section('title', 'Make a Post')
 
-<x-navbar />
 
-<div class="min-h-screen bg-sky-200 dark:bg-gray-800 flex items-center justify-center">
+<div class="min-h-screen bg-sky-200 dark:bg-gray-800 flex items-center justify-center pt-16">
 @section('content')
 
 <div class="flex flex-col items-center mt-16 sm:mt-20 pb-8">
@@ -14,9 +13,21 @@
         <label for="post" class="block text-sm font-medium">Post:</label>
         <textarea name="post" id="post" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500"></textarea>
         </p>
-        <input class='text-black dark:text-white' type="submit" value="Submit">
+        @if ($errors->any())
+        <div class="text-black dark:text-white pb-4 rounded mb-4">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<div class="flex justify-between items-center w-full">
         <a href="{{ route('posts.index') }}" class='text-black dark:text-white'>Cancel</a>
-    </form>
+        <input class='text-black dark:text-white' type="submit" value="Submit">
+        
+    </div>
+</form>
 </div>
 </div>
 @endsection
