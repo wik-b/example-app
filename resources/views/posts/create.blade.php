@@ -1,9 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
-@section('title', 'Make a Post')
+@section('title', 'Post')
 
-
-<div class="min-h-screen bg-sky-200 dark:bg-gray-800 flex items-center justify-center pt-16">
 @section('content')
 
 <div class="flex flex-col items-center mt-16 sm:mt-20 pb-8">
