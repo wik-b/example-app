@@ -21,6 +21,11 @@
                 <li class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
                     <strong class="text-lg text-blue-600">{{$post->user->name}}</strong>
                     <p class="mt-2">{{$post->post}}</p>
+                    @if ($post->image)
+                    <div class="mt-4">
+                        <img src="{{$post->image}}" alt="Post Image" class="w-full rounded-lg">
+                    </div>
+                    @endif
                 </li>
                 @endforeach
             </ul>

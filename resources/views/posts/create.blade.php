@@ -13,6 +13,10 @@
         <label for="post" class="block text-sm font-medium">Post:</label>
         <textarea name="post" id="post" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500"></textarea>
         </p>
+        <p class="text-black dark:text-white mb-4">
+            <label for="image" class="block text-sm font-medium">Image URL (optional):</label>
+            <input type="url" name="image" id="image" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500">
+        </p>
         @if ($errors->any())
         <div class="text-black dark:text-white pb-4 rounded mb-4">
     <ul>

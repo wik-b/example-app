@@ -33,18 +33,13 @@ class PostsController extends Controller
     {
         $request->validate([
             'post' => 'required|max:500',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|url',
         ]);
-
-        $imagepath = null;
-        if ($request->hasFile('image')) {
-            $imagepath = $request->file('image')->store('public/images');
-        }
 
         Posts::create([
             'author_id' => auth()->id(),
             'post' => $request->post,
-            'image' => $imagepath,  
+            'image' => $request['image'],  
         ]);
         return redirect()->route('home.index')->with('success', 'Thank you for posting!');
     }   
