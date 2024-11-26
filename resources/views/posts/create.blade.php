@@ -8,11 +8,11 @@
     <form method="POST" action="{{ route('posts.store')}}" class="w-full max-w-lg bg-sky-200 dark:bg-gray-800 p-6 rounded-lg shadow-md">
         @csrf
         <p class='text-black dark:text-white mb-4'>
-        <label for="post" class="block text-sm font-medium">Post:</label>
+        <label for="post" class="block text-sm font-extrabold">Post:</label>
         <textarea name="post" id="post" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500"></textarea>
         </p>
         <p class="text-black dark:text-white mb-4">
-            <label for="image" class="block text-sm font-medium">Image URL (optional):</label>
+            <label for="image" class="block text-sm font-extrabold">Image URL (optional):</label>
             <input type="url" name="image" id="image" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500">
         </p>
         @if ($errors->any())
@@ -25,8 +25,8 @@
 </div>
 @endif
 <div class="flex justify-between items-center w-full">
-        <a href="{{ route('home.index') }}" class='text-black dark:text-white'>Cancel</a>
-        <input class='text-black dark:text-white' type="submit" value="Submit">
+        <a href="{{ route('home.index') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cancel</a>
+        <input class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="submit" value="Submit">
         
     </div>
 </form>
