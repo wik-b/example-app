@@ -10,14 +10,16 @@ class Comments extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['author_id', 'post_id', 'comment'];
+
     public function post()
     {
-    return $this->belongsTo(Posts::class);
+    return $this->belongsTo(Posts::class, 'post_id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 
 }

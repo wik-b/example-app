@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Posts;
 use App\Models\User;
+use App\Models\Comments;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -32,15 +33,22 @@ class PostsController extends Controller
     {
         $request->validate([
             'post' => 'required|max:500',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $imagepath = null;
+        if ($request->hasFile('image')) {
+            $imagepath = $request->file('image')->store('public/images');
+        }
 
         Posts::create([
             'author_id' => auth()->id(),
             'post' => $request->post,
-            
+            'image' => $imagepath,  
         ]);
         return redirect()->route('posts.index')->with('success', 'Thank you for posting!');
     }   
+
     
 
     /**

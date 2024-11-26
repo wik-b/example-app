@@ -16,6 +16,7 @@
     </head>
     
     <body class="font-sans text-gray-900 antialiased">
+        
         <div class="min-h-screen  bg-sky-200 dark:bg-gray-900 flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
             <div>
                 <a href="/">
@@ -29,3 +30,4 @@
         </div>
     </body>
 </html>
+

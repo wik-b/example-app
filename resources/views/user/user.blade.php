@@ -19,7 +19,7 @@
         <p class="text-base/7 text-balance pb-6 text-black dark:text-white">WikConnect is the new cool way of sharing your thoughts, travels, and interests with the whole world. 
             Want to join? Click the button below to make your an account. 
             It's quick and simple and once you're done, you can begin sharing. Don't miss out</p>
-        
+        <a href="{{ route('register') }}" class="inline-block">
         <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create an Account</button>
         </button>
         </a>

@@ -7,7 +7,6 @@ use League\CommonMark\Extension\TableOfContents\Normalizer\AsIsNormalizerStrateg
 use Illuminate\Support\Facades\Auth;
 
 
-
 Route::get('/', [PostsController::class, 'index'])->name('posts.index');
 
 Route::get('/user', function () {
@@ -30,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
     Route::get('/posts/{author_id}', [PostsController::class, 'show'])->name('posts.show');
 });
+
 
 require __DIR__.'/auth.php';
 

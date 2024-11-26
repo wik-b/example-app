@@ -9,8 +9,7 @@
         <title>Posts @yield('title')</title>
     </head>
     <body>
-    <h1>posts testing</h1>
-    
+
     <div>
     
         
