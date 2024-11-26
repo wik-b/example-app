@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('author_id');
             $table->text('post');
-            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->foreign('author_id')->references('id')->on('users')

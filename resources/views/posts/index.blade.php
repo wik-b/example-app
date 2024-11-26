@@ -6,7 +6,7 @@
 
 <x-navbar />
 
-<div class="min-h-screen bg-sky-200 dark:bg-gray-800 flex items-center justify-center">
+<div class="min-h-screen bg-sky-200 dark:bg-gray-800 flex items-center justify-center pt-20">
     <head>
         <title>WikConnect @yield('title')</title>
 </head>
@@ -14,12 +14,13 @@
 
     <div>
     @section('content')
-        <div class="container">
-            <h1 class="text-5xl pb-6 font-extrabold text-blue-600">Welcome to the Feed!</h1>
-            <ul class='text-black dark:text-white mb-4'>
+        <div class="container mx-auto p-4">
+            <h1 class="text-5xl pb-10 font-extrabold text-blue-600">Welcome to the Feed!</h1>
+            <ul class='text-black dark:text-white mb-4 space-y-4'>
                 @foreach($posts as $post)
-                <li>
-                    <strong>{{$post->user->name}}</strong>: {{$post->post}}
+                <li class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                    <strong class="text-lg text-blue-600">{{$post->user->name}}</strong>
+                    <p class="mt-2">{{$post->post}}</p>
                 </li>
                 @endforeach
             </ul>
