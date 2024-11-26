@@ -45,7 +45,19 @@ class PostsController extends Controller
     }   
 
     
+    public function storeComment(Request $request, $postId)
+    {
+        $request->validate([
+            'comment' => 'required|max:200',
+        ]);
 
+        Comments::create([
+            'post_id' => $postId,
+            'author_id' => auth()->id(),
+            'comment' => $request->comment,
+        ]);
+        return redirect()->route('home.index')->with('success', 'Thank you for commenting!');
+    }
     /**
      * Show the form for editing the specified resource.
      */

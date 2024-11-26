@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/{author_id}', [PostsController::class, 'show'])->name('posts.show');
 });
 
+Route::post('/posts/{post_id}/comments', [PostsController::class, 'storeComment'])->name('comments.store');
 
 require __DIR__.'/auth.php';
 
