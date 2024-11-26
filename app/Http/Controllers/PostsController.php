@@ -16,7 +16,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Posts::with('user')->get();
-        return view("posts.index", compact('posts'));
+        return view("home.index", compact('posts'));
     }
     /**
      * Show the form for creating a new resource.
@@ -46,7 +46,7 @@ class PostsController extends Controller
             'post' => $request->post,
             'image' => $imagepath,  
         ]);
-        return redirect()->route('posts.index')->with('success', 'Thank you for posting!');
+        return redirect()->route('home.index')->with('success', 'Thank you for posting!');
     }   
 
     

@@ -23,7 +23,7 @@
 </div>
 @endif
 <div class="flex justify-between items-center w-full">
-        <a href="{{ route('posts.index') }}" class='text-black dark:text-white'>Cancel</a>
+        <a href="{{ route('home.index') }}" class='text-black dark:text-white'>Cancel</a>
         <input class='text-black dark:text-white' type="submit" value="Submit">
         
     </div>

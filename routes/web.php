@@ -7,7 +7,7 @@ use League\CommonMark\Extension\TableOfContents\Normalizer\AsIsNormalizerStrateg
 use Illuminate\Support\Facades\Auth;
 
 
-Route::get('/', [PostsController::class, 'index'])->name('posts.index');
+Route::get('/', [PostsController::class, 'index'])->name('home.index');
 
 Route::get('/user', function () {
     return view('user.user');
