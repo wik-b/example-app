@@ -11,11 +11,11 @@
         @csrf
         <p class='text-black dark:text-white mb-2'>
         <label for="post" class="block text-sm font-extrabold">Post:</label>
-        <textarea name="post" id="post" class="mt-1 block w-full h-20 pb-4 rounded-md border-gray-300 dark:border-gray-700 bg-stone-200 dark:bg-gray-700 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+        <textarea name="post" id="post" class="mt-1 indent-2 pt-1 block w-full h-20 pb-4 rounded-md border-gray-300 dark:border-gray-700 bg-stone-200 dark:bg-gray-700 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500"></textarea>
         </p>
         <p class="text-black dark:text-white mb-4">
             <label for="image" class="block text-sm font-extrabold">Image URL (optional):</label>
-            <input type="url" name="image" id="image" class="mt-1 block w-full h-10 rounded-md border-gray-300 dark:border-gray-700 bg-stone-200 dark:bg-gray-700 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500">
+            <input type="url" name="image" id="image" class="mt-1 indent-2 block w-full h-10 rounded-md border-gray-300 dark:border-gray-700 bg-stone-200 dark:bg-gray-700 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500">
         </p>
         @if ($errors->any())
         <div class="text-black dark:text-white pb-4 rounded mb-4">

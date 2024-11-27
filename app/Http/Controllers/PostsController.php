@@ -39,7 +39,7 @@ class PostsController extends Controller
         Posts::create([
             'author_id' => auth()->id(),
             'post' => $request->post,
-            'image' => $request['image'],  
+            'image' => $request['image'],
         ]);
         return redirect()->route('home.index')->with('success', 'Thank you for posting!');
     }   
