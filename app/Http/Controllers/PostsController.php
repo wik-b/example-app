@@ -47,6 +47,10 @@ class PostsController extends Controller
     
     public function storeComment(Request $request, $postId)
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+    
         $request->validate([
             'comment' => 'required|max:200',
         ]);
