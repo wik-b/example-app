@@ -18,6 +18,13 @@ class PostsController extends Controller
         $posts = Posts::with('user')->get();
         return view("home.index", compact('posts'));
     }
+
+    public function showUserPosts()
+    {
+        $user = Auth::user();
+        $posts = Posts::where('author_id', $user->id)->get();
+        return view('dashboard', compact('posts'));
+    }
     /**
      * Show the form for creating a new resource.
      */

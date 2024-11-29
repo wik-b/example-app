@@ -16,9 +16,9 @@
             <ul class='text-black dark:text-white mb-4 space-y-4'>
                 @foreach($posts as $post)
                 <li class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md max-w-3xl mx-auto">
-                   <div class="flex justify-between items-center ">
+                   <div class="flex justify-between items-center">
                 <strong class="text-lg text-blue-600">{{$post->user->name}} </strong> 
-                <p class="text-left text-stone-300">{{ $post->updated_at }}</p>
+                <p class="text-left text-stone-300 italic">{{ $post->updated_at }}</p>
                     </div> 
                     <p class="mt-2">{{$post->post}}</p>
                     @if ($post->image)
@@ -32,7 +32,7 @@
                             @foreach($post->comments as $comment)
                             <li class="mt-2">
                                 <strong>{{$comment->user->name}}</strong>: {{$comment->comment}}
-                                <p class="text-left text-stone-300">{{ $comment->updated_at }}</p>
+                                <p class="text-left text-stone-300 italic">{{ $comment->updated_at }}</p>
                             </li>
                             @endforeach
                         </ul>

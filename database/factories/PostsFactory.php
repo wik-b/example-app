@@ -19,6 +19,7 @@ class PostsFactory extends Factory
         return [
             'author_id' => \App\Models\User::all()->random()->id,
             'post' => fake()->text(),
+            'image' => fake()->imageUrl(),
         ];
     }
 
