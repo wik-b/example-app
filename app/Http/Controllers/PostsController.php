@@ -25,6 +25,15 @@ class PostsController extends Controller
         $posts = Posts::where('author_id', $user->id)->get();
         return view('dashboard', compact('posts'));
     }
+
+    public function showAllUserPosts($id)
+    {
+        $user = User::findOrFail($id);
+        $posts = Posts::where('author_id', $user->id)->get();
+        return view('user.user', compact('user', 'posts'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */

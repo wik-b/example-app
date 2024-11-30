@@ -15,6 +15,7 @@ Route::get('/user', function () {
 Route::get('/user/newuser', [PostsController::class, 'newuser'])->name('user.newuser');
 Route::post('/user', [PostsController::class, 'store'])->name('user.store');
 Route::get('/user/{author_id}', [PostsController::class, 'show'])->name('user.show');
+Route::get('/user/{id}/posts', [PostsController::class, 'showAllUserPosts'])->name('user.user');
 
 
 Route::get('/dashboard', function () {
