@@ -18,7 +18,7 @@
                 <li class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md max-w-3xl mx-auto">
                    <div class="flex justify-between items-center">
                     <a href="{{ route('user.user', $post->author_id) }}" class="text-lg text-blue-600 font-bold">{{$post->user->name}}</a>
-                <p class="text-left text-stone-400 dark:text-gray-500 italic">{{ $post->updated_at }}</p>
+                    <p class="text-left text-stone-400 dark:text-gray-500 italic">{{ $post->updated_at }}</p>
                     </div> 
                     <p class="mt-2">{{$post->post}}</p>
                     @if ($post->image)

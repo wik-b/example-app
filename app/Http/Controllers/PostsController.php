@@ -29,8 +29,9 @@ class PostsController extends Controller
     public function showAllUserPosts($id)
     {
         $user = User::findOrFail($id);
-        $posts = Posts::where('author_id', $user->id)->get();
-        return view('user.user', compact('user', 'posts'));
+        $posts = Posts::where('author_id', $user->id)->with('comments.user')->get();
+        $comments = Comments::where('author_id', $user->id)->with('post.user')->get();
+        return view('user.user', compact('user', 'posts', 'comments'));
     }
 
 

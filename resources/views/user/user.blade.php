@@ -14,9 +14,11 @@
             <h2 class="text-xl indent-2 font-semibold text-left text-black dark:text-white mb-4">{{$user->name}}'s Posts:</h2>
             <ul class="list-none">
             @foreach ($posts as $post)
-            <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 px-6 rounded-lg shadow-md mb-8 mt-2 max-w-3xl mx-autoborder border-gray-200 dark:border-gray-700">
-                <p class="text-lg text-blue-600 font-bold pt-2">{{$user->name}}</p>
-                <p class="text-stone-400 dark:text-gray-500 italic">{{ $post->updated_at }}</p>
+            <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto">
+                <div class="flex justify-between items-center">
+                    <p class="text-lg text-blue-600 font-bold pt-2">{{$user->name}}</p>
+                    <p class="text-stone-400 dark:text-gray-500 italic items-baseline">{{ $post->updated_at }}</p>
+                </div>
                 <p class="mt-2 leading-relaxed">{{$post->post}}</p>
                 @if ($post->image)
                 <div class="mt-4">
@@ -27,7 +29,7 @@
                 <h3 class="block text-sm font-medium py-4 indent-1">Comments:</h3>
                 @endif
                 @foreach($post->comments as $comment)
-                <div class="bg-white dark:bg-gray-800 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto border border-gray-200 dark:border-gray-700">
+                <div class="bg-white dark:bg-gray-800 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto">
                 <p class="text-lg text-blue-600 font-bold">{{$comment->user->name}}</p>
                 <p class="text-stone-400 dark:text-gray-500 italic">{{ $comment->updated_at }}</p>
                 <p class="mt-2">{{$comment->comment}}</p>  
@@ -36,5 +38,22 @@
             @endforeach
     </li>
     </ul>
+
+    <h2 class="text-xl indent-2 font-semibold text-left text-black dark:text-white mb-4 mt-8">{{$user->name}}'s Comments:</h2>
+    <ul class="list-none">
+        @foreach ($comments as $comment)
+        <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto">
+            <div class="flex items-baseline">
+                <p class="text-lg text-blue-600 font-bold">{{$comment->user->name}}</p>
+                <p class="ml-2 text-sm text-gray-600 dark:text-gray-500 italic">commented</p>
+            </div>
+                <p class="text-stone-400 dark:text-gray-500 italic baseline">{{ $comment->updated_at }}</p>
+                <p class="mt-2 leading-relaxed">{{$comment->comment}}</p>  
+                <p class="text-stone-400 dark:text-gray-500 font-semibold italic">On {{ $comment->post->user->name }}'s Post</p>
+                <p class="text-stone-400 dark:text-gray-500 italic">{{ $comment->post->post }}</p>
+        </li>
+        @endforeach
+    </ul>
+</div>
 </div>
 @endsection
