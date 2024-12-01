@@ -27,7 +27,7 @@
                     </div>
                     @endif
                     <div class="mt-4">
-                        <h3 class="block text-sm font-medium indent-1">Comments:</h3>
+                        <h3 class="block text-sm font-medium">Comments:</h3>
                         <ul>
                             @foreach($post->comments as $comment)
                             <li class="mt-2">

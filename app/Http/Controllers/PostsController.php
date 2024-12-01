@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Posts;
 use App\Models\User;
 use App\Models\Comments;
-use Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -82,24 +83,42 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Posts $post)
     {
-        //
+        if (Gate::denies('update-post', $post)) {
+            return redirect()->route('home.index')->with('error', 'You are not authorized to edit this post');
+        }
+        return view('posts.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Posts $post)
     {
-        //
+       if (Gate::denies('update.post', $post)) {
+           return redirect()->route('home.index')->with('error', 'You are not authorized to edit this post');
+       }
+
+       $request->validate([
+           'post' => 'required|max:500',
+           'image' => 'nullable|url',
+       ]);
+
+       $post->update($request->only('post', 'image'));
+
+       return redirect()->route('home.index')->with('success', 'Post updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Posts $post)
     {
-        //
+        if (Gate::denies('delete.post', $post)) {
+            return redirect()->route('home.index')->with('error', 'You are not authorized to delete this post');
+        }
+
+        return redirect()->route('home.index')->with('success', 'Post deleted!');
     }
 }

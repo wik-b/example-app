@@ -14,7 +14,7 @@
             <h2 class="text-xl indent-2 font-semibold text-left text-black dark:text-white mb-4">{{$user->name}}'s Posts:</h2>
             <ul class="list-none">
             @foreach ($posts as $post)
-            <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto">
+            <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto px-6">
                 <div class="flex justify-between items-center">
                     <p class="text-lg text-blue-600 font-bold pt-2">{{$user->name}}</p>
                     <p class="text-stone-400 dark:text-gray-500 italic items-baseline">{{ $post->updated_at }}</p>

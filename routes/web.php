@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/posts/create', [PostsController::class, 'create'])->name('posts.create');
     Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
-    Route::get('/posts/{author_id}', [PostsController::class, 'show'])->name('posts.show');
+    Route::get('/posts/{author_id}', [PostsController::class, 'show'])->name('posts.show'); 
 });
 
 Route::post('/posts/{post_id}/comments', [PostsController::class, 'storeComment'])->name('comments.store');
