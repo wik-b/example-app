@@ -8,9 +8,11 @@ use App\Models\Comments;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class PostsController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -34,8 +36,6 @@ class PostsController extends Controller
         $comments = Comments::where('author_id', $user->id)->with('post.user')->get();
         return view('user.user', compact('user', 'posts', 'comments'));
     }
-
-
     /**
      * Show the form for creating a new resource.
      */
@@ -85,9 +85,7 @@ class PostsController extends Controller
      */
     public function edit(Posts $post)
     {
-        if (Gate::denies('update-post', $post)) {
-            return redirect()->route('home.index')->with('error', 'You are not authorized to edit this post');
-        }
+        $this->authorize('update', $post);
         return view('posts.edit', compact('post'));
     }
 
@@ -96,9 +94,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, Posts $post)
     {
-       if (Gate::denies('update.post', $post)) {
-           return redirect()->route('home.index')->with('error', 'You are not authorized to edit this post');
-       }
+       $this->authorize('update', $post);
 
        $request->validate([
            'post' => 'required|max:500',
@@ -115,9 +111,8 @@ class PostsController extends Controller
      */
     public function destroy(Posts $post)
     {
-        if (Gate::denies('delete.post', $post)) {
-            return redirect()->route('home.index')->with('error', 'You are not authorized to delete this post');
-        }
+        $this->authorize('delete', $post);
+        $post->delete();
 
         return redirect()->route('home.index')->with('success', 'Post deleted!');
     }

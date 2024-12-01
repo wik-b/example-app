@@ -15,10 +15,11 @@
             <ul class="list-none">
             @foreach ($posts as $post)
             <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto px-6">
-                <div class="flex justify-between items-center">
+                <div class="flex items-baseline">
                     <p class="text-lg text-blue-600 font-bold pt-2">{{$user->name}}</p>
-                    <p class="text-stone-400 dark:text-gray-500 italic items-baseline">{{ $post->updated_at }}</p>
+                    <p class="ml-2 text-sm text-gray-600 dark:text-gray-500 italic">posted</p>
                 </div>
+                <p class="text-stone-400 dark:text-gray-500 italic items-baseline">{{ $post->updated_at }}</p>
                 <p class="mt-2 leading-relaxed">{{$post->post}}</p>
                 @if ($post->image)
                 <div class="mt-4">
