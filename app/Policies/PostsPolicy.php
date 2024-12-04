@@ -14,7 +14,7 @@ class PostsPolicy
      */
     public function update(User $user, Posts $posts): bool
     {
-        return $user->id === $posts->author_id;
+        return $user->id === $posts->author_id || $user->is_admin;
     }
 
     /**
@@ -22,7 +22,7 @@ class PostsPolicy
      */
     public function delete(User $user, Posts $posts): bool
     {
-        return $user->id === $posts->author_id;
+        return $user->id === $posts->author_id || $user->is_admin;
     }
 
 }

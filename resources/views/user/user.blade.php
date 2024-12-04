@@ -10,8 +10,8 @@
             {{ $user->name }}'s Profile
         </h1>
 
-        <div class ="mt-8 text-center items-center">
-            <h2 class="text-xl indent-2 font-semibold text-left text-black dark:text-white mb-4">{{$user->name}}'s Posts:</h2>
+        <div class ="mt-8 text-center items-center min-w-[80%]">
+            <h2 class="text-xl indent-2 font-semibold text-black dark:text-white mb-4 text-left ms-48">{{$user->name}}'s Posts:</h2>
             <ul class="list-none">
             @foreach ($posts as $post)
             <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto px-6">
@@ -33,14 +33,17 @@
                 <div class="bg-white dark:bg-gray-800 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto">
                 <p class="text-lg text-blue-600 font-bold">{{$comment->user->name}}</p>
                 <p class="text-stone-400 dark:text-gray-500 italic">{{ $comment->updated_at }}</p>
-                <p class="mt-2">{{$comment->comment}}</p>  
+                <p class="py-2 leading-relaxed">{{$comment->comment}}</p>  
                 </div>
                 @endforeach        
             @endforeach
+            @if ($posts->isEmpty())
+        <p class="text-medium indent-2 text-left text-black dark:text-white mb-4 italic">No posts to display...</p>
+        @endif
     </li>
     </ul>
 
-    <h2 class="text-xl indent-2 font-semibold text-left text-black dark:text-white mb-4 mt-8">{{$user->name}}'s Comments:</h2>
+    <h2 class="text-xl indent-2 font-semibold text-black dark:text-white mb-4 mt-8 text-left ms-48">{{$user->name}}'s Comments:</h2>
     <ul class="list-none">
         @foreach ($comments as $comment)
         <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto">
@@ -49,11 +52,14 @@
                 <p class="ml-2 text-sm text-gray-600 dark:text-gray-500 italic">commented</p>
             </div>
                 <p class="text-stone-400 dark:text-gray-500 italic baseline">{{ $comment->updated_at }}</p>
-                <p class="mt-2 leading-relaxed">{{$comment->comment}}</p>  
+                <p class="py-2 leading-relaxed">{{$comment->comment}}</p>  
                 <p class="text-stone-400 dark:text-gray-500 font-semibold italic">On {{ $comment->post->user->name }}'s Post</p>
                 <p class="text-stone-400 dark:text-gray-500 italic">{{ $comment->post->post }}</p>
         </li>
         @endforeach
+        @if ($comments->isEmpty())
+            <p class="indent-2 text-left text-black dark:text-white mb-4 mt-8 italic text-medium">No comments to display...</p>
+        @endif
     </ul>
 </div>
 </div>

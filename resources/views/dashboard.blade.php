@@ -7,6 +7,11 @@
             {{ __('Profile') }}
         </h1>
 
+        @if (auth()->user()->is_admin)
+        <div class="bg-white dark:bg-gray-900 text-left p-6 rounded-lg shadow-md mb-4 max-w-3xl mx-auto">
+            <p class="text-lg text-blue-600 font-bold">Admin</p>
+        </div>
+        @endif
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -20,7 +25,7 @@
         <div class ="mt-8 text-center items-center">
             <h2 class="text-3xl font-bold text-black dark:text-white mb-4 text-left indent-2">Your Posts</h2>
             @foreach ($posts as $post)
-            <div class="bg-white dark:bg-gray-900 text-left p-6 rounded-lg shadow-md mb-4 max-w-3xl mx auto">
+            <div class="bg-white dark:bg-gray-900 text-left p-6 rounded-lg shadow-md mb-4 max-w-3xl mx auto min-w-[80%]">
                 <p class="text-lg text-blue-600 font-bold">{{$post->user->name}}</p>
                 <p class="text-stone-300 dark:text-gray-500 italic">{{ $post->updated_at }}</p>
                 <p class="mt-2">{{$post->post}}</p>

@@ -17,7 +17,7 @@
                 @foreach($posts as $post)
                 <li class="relative bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md max-w-3xl mx-auto">
                    <div class="flex justify-between items-center">
-                    <a href="{{ route('user.user', $post->author_id) }}" class="text-lg text-blue-600 font-bold">{{$post->user->name}}</a>
+                    <a href="{{ route('user.user', $post->author_id) }}" class="text-lg text-blue-600 font-bold hover:underline">{{$post->user->name}}</a>
                     <p class="text-left text-stone-400 dark:text-gray-500 italic">{{ $post->updated_at }}</p>
                     </div> 
                     <p class="mt-2">{{$post->post}}</p>
@@ -31,7 +31,7 @@
                         <ul>
                             @foreach($post->comments as $comment)
                             <li class="mt-2">
-                            <a href="{{ route('user.user', $comment->author_id) }}" class="text-lg text-blue-600 font-bold">{{$comment->user->name}}</a>
+                            <a href="{{ route('user.user', $comment->author_id) }}" class="text-lg text-blue-600 font-bold hover:underline">{{$comment->user->name}}</a>
                                 : {{$comment->comment}}
                                 <p class="text-left text-stone-400 dark:text-gray-500 italic">{{ $comment->updated_at }}</p>
                             </li>

@@ -18,7 +18,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Posts::with('user')->get();
+        $posts = Posts::with('user')->get()->sortByDesc('created_at');
         return view("home.index", compact('posts'));
     }
 
@@ -83,6 +83,7 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
     public function edit(Posts $post)
     {
         $this->authorize('update', $post);
@@ -105,15 +106,16 @@ class PostsController extends Controller
 
        return redirect()->route('home.index')->with('success', 'Post updated!');
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Posts $post)
     {
         $this->authorize('delete', $post);
+        $post->comments()->delete();
         $post->delete();
 
         return redirect()->route('home.index')->with('success', 'Post deleted!');
     }
+
 }
