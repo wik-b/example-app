@@ -14,9 +14,9 @@
             <h2 class="text-xl indent-2 font-semibold text-black dark:text-white mb-4 text-left ms-48">{{$user->name}}'s Posts:</h2>
             <ul class="list-none">
             @foreach ($posts as $post)
-            <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto px-6">
+            <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto px-6 pb-6 pt-6">
                 <div class="flex items-baseline">
-                    <p class="text-lg text-blue-600 font-bold pt-2">{{$user->name}}</p>
+                    <p class="text-lg text-blue-600 font-bold">{{$user->name}}</p>
                     <p class="ml-2 text-sm text-gray-600 dark:text-gray-500 italic">posted</p>
                 </div>
                 <p class="text-stone-400 dark:text-gray-500 italic items-baseline">{{ $post->updated_at }}</p>
@@ -38,7 +38,7 @@
                 @endforeach        
             @endforeach
             @if ($posts->isEmpty())
-        <p class="text-medium indent-2 text-left text-black dark:text-white mb-4 italic">No posts to display...</p>
+        <p class="text-medium indent-2 text-left text-black dark:text-white mb-4 italic ms-48">No posts to display...</p>
         @endif
     </li>
     </ul>
@@ -46,7 +46,7 @@
     <h2 class="text-xl indent-2 font-semibold text-black dark:text-white mb-4 mt-8 text-left ms-48">{{$user->name}}'s Comments:</h2>
     <ul class="list-none">
         @foreach ($comments as $comment)
-        <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto">
+        <li class="bg-gray-100 dark:bg-gray-900 text-left p-4 rounded-lg shadow-md mb-4 max-w-3xl mx-auto px-6 pb-6 pt-6">
             <div class="flex items-baseline">
                 <p class="text-lg text-blue-600 font-bold">{{$comment->user->name}}</p>
                 <p class="ml-2 text-sm text-gray-600 dark:text-gray-500 italic">commented</p>
@@ -58,7 +58,7 @@
         </li>
         @endforeach
         @if ($comments->isEmpty())
-            <p class="indent-2 text-left text-black dark:text-white mb-4 mt-8 italic text-medium">No comments to display...</p>
+            <p class="indent-2 text-left text-black dark:text-white mb-4 mt-8 italic text-medium ms-48">No comments to display...</p>
         @endif
     </ul>
 </div>

@@ -12,7 +12,7 @@
     <div>
     @section('content')
         <div class="container mx-auto p-2">
-            <h1 class="text-5xl pb-10 pt-8 font-extrabold text-blue-600 text-center">Welcome to the Feed!</h1>
+            <h1 class="text-3xl pb-10 pt-8 font-extrabold text-blue-600 text-left ml-64">WikConnect Feed:</h1>
             <ul class='text-black dark:text-white mb-4 space-y-4'>
                 @foreach($posts as $post)
                 <li class="relative bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md max-w-3xl mx-auto">
