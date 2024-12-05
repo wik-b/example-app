@@ -6,7 +6,7 @@
 <div class="min-h-screen flex flex-col items-center py-12">
     <h1 class="text-5xl pb-10 pt-4 font-extrabold text-blue-600 text-center">Edit Comment</h1>
 
-    <div class="w-full max-w-3xl min-h-[300px] bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md flex flex-col justify-between">
+    <div class="w-full max-w-3xl bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md flex flex-col justify-between">
         <form method="POST" action="{{ route('comments.update', $comment->id) }}">
             @csrf
             @method('PATCH')
