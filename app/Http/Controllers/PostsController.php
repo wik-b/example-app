@@ -90,6 +90,12 @@ class PostsController extends Controller
         return view('posts.edit', compact('post'));
     }
 
+    public function editComment(Comments $comment)
+    {
+        $this->authorize('update', $comment);
+        return view('comments.edit', compact('comment'));
+    }
+
     /**
      * Update the specified resource in storage.
      */
@@ -106,6 +112,19 @@ class PostsController extends Controller
 
        return redirect()->route('home.index')->with('success', 'Post updated!');
     }
+
+    public function updateComment(Request $request, Comments $comment)
+    {
+       $this->authorize('update', $comment);
+
+       $request->validate([
+           'comment' => 'required|max:200',
+       ]);
+
+       $comment->update($request->only('comment'));
+
+       return redirect()->route('home.index')->with('success', 'Comment updated!');
+    }
     /**
      * Remove the specified resource from storage.
      */
@@ -116,6 +135,14 @@ class PostsController extends Controller
         $post->delete();
 
         return redirect()->route('home.index')->with('success', 'Post deleted!');
+    }
+
+    public function destroyComment(Comments $comment)
+    {
+        $this->authorize('delete', $comment);
+        $comment->delete();
+
+        return redirect()->route('home.index')->with('success', 'Commented deleted!');
     }
 
 }

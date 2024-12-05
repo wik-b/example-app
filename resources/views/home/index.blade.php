@@ -1,8 +1,6 @@
 @extends('layouts.home')
 @section('title', 'Home')
-<!doctype html>
-<html lang="eng">
-<script src="https://cdn.tailwindcss.com"></script>
+
 
 <head>
         <title>WikConnect @yield('title')</title>
@@ -32,7 +30,14 @@
                             @foreach($post->comments as $comment)
                             <li class="mt-2">
                             <a href="{{ route('user.user', $comment->author_id) }}" class="text-lg text-blue-600 font-bold hover:underline">{{$comment->user->name}}</a>
-                                : {{$comment->comment}}
+                                : 
+                                @can('update', $comment)
+                                <a href="{{ route('comments.edit', $comment->id) }}" class="hover:underline">
+                                    {{$comment->comment}}
+                                </a>
+                                @else
+                                {{$comment->comment}}
+                                @endcan
                                 <p class="text-left text-stone-400 dark:text-gray-500 italic">{{ $comment->updated_at }}</p>
                             </li>
                             @endforeach
