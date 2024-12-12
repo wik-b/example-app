@@ -21,8 +21,6 @@
   @endguest
 
   @auth
-  
-
   <div class="relative inline-block">
     <button type="button" class="flex items-center rounded-lg p-[5px]" id="user-menu-button" aria-expanded="false" aria-haspopup="true" onclick="toggleDropdown()">
       <span class="text-blue-500 font-semibold px-2 hover:text-blue-700">{{ Auth::user()->name }}</span>
@@ -44,6 +42,7 @@
 
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-fixed">
   </div>
+ 
   </div>
 </nav>
 
@@ -52,4 +51,5 @@
     var menu = document.getElementById('user-menu');
     menu.classList.toggle('hidden');
   }
+   
 </script>

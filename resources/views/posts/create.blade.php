@@ -7,15 +7,15 @@
 <div class="flex flex-col items-center mt-16 sm:mt-20 pb-8">
 <h3 class="text-2xl pb-2 font-extrabold text-blue-600 text-center">Got something on your mind?</h3>
 <p class="text-center pb-10">Share your thoughts with your feed and connect with others</p>
-    <form method="POST" action="{{ route('posts.store')}}" class="w-full max-w-3xl min-h-[300px] bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md flex flex-col justify-between">
+    <form method="POST" action="{{ route('posts.store')}}" enctype="multipart/form-data" class="w-full max-w-3xl min-h-[300px] bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md flex flex-col justify-between">
         @csrf
         <p class='text-black dark:text-white mb-2'>
         <label for="post" class="block text-sm font-extrabold">Post:</label>
         <textarea name="post" id="post" class="mt-1 indent-2 pt-1 block w-full h-20 pb-4 rounded-md border-gray-300 dark:border-gray-700 bg-stone-200 dark:bg-gray-700 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500"></textarea>
         </p>
         <p class="text-black dark:text-white mb-4">
-            <label for="image" class="block text-sm font-extrabold">Image URL (optional):</label>
-            <input type="url" name="image" id="image" class="mt-1 indent-2 block w-full h-10 rounded-md border-gray-300 dark:border-gray-700 bg-stone-200 dark:bg-gray-700 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500">
+            <label for="image" class="block text-sm font-extrabold mb-2">Image (optional):</label>
+            <input type="file" name="image" id="image" class="w-full rounded-md border-gray-300 dark:border-gray-700 bg-stone-200 dark:bg-gray-700 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500 p-2">
         </p>
         @if ($errors->any())
         <div class="text-black dark:text-white pb-4 rounded mb-4">

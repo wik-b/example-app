@@ -7,7 +7,7 @@
     <h1 class="text-5xl pb-10 pt-4 font-extrabold text-blue-600 text-center">Edit Post</h1>
 
     <div class="w-full max-w-3xl min-h-[300px] bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md flex flex-col justify-between">
-        <form method="POST" action="{{ route('posts.update', $post->id) }}">
+        <form method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 
@@ -17,8 +17,8 @@
             </div>
 
             <div class="mb-4">
-                <label for="image" class="block text-sm font-extrabold text-black dark:text-white mb-2">Image URL (optional):</label>
-                <input type="url" id="image" name="image" class="w-full rounded-md border-gray-300 dark:border-gray-700 bg-stone-200 dark:bg-gray-700 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500 p-2" value="{{ old('image', $post->image) }}">
+                <label for="image" class="block text-sm font-extrabold text-black dark:text-white mb-2">Image (optional):</label>
+                <input type="file" id="image" name="image" class="w-full rounded-md border-gray-300 dark:border-gray-700 bg-stone-200 dark:bg-gray-700 text-black dark:text-white focus:ring-indigo-500 focus:border-indigo-500 p-2" value="{{ old('image', $post->image) }}">
             </div>
             <ul>
                  @foreach ($errors->all() as $error)

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\NotificationsController;
 use Illuminate\Support\Facades\Route;
 use League\CommonMark\Extension\TableOfContents\Normalizer\AsIsNormalizerStrategy;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,7 @@ Route::get('/user/{id}/posts', [PostsController::class, 'showAllUserPosts'])->na
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [PostsController::class, 'showUserPosts'])->name('dashboard');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Posts;
 use App\Models\User;
 use App\Models\Comments;
+use App\Notifications\NewComment;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -51,13 +53,18 @@ class PostsController extends Controller
     {
         $request->validate([
             'post' => 'required|max:500',
-            'image' => 'nullable|url',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
+
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+        }
 
         Posts::create([
             'author_id' => auth()->id(),
             'post' => $request->post,
-            'image' => $request['image'],
+            'image' => $imagePath,
         ]);
         return redirect()->route('home.index')->with('success', 'Thank you for posting!');
     }   
@@ -73,12 +80,16 @@ class PostsController extends Controller
             'comment' => 'required|max:200',
         ]);
 
-        Comments::create([
+        $comment = Comments::create([
             'post_id' => $postId,
             'author_id' => auth()->id(),
             'comment' => $request->comment,
         ]);
-        return redirect()->route('home.index')->with('success', 'Thank you for commenting!');
+
+        return response()->json([
+            'comment' => $comment,
+            'user' => auth()->user(),
+        ]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -105,7 +116,7 @@ class PostsController extends Controller
 
        $request->validate([
            'post' => 'required|max:500',
-           'image' => 'nullable|url',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
        ]);
 
        $post->update($request->only('post', 'image'));
@@ -144,5 +155,4 @@ class PostsController extends Controller
 
         return redirect()->route('home.index')->with('success', 'Commented deleted!');
     }
-
-}
+}   
